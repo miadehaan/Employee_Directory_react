@@ -7,7 +7,7 @@
 This application utilizes React JS.
 This application is deployed using Github.
 
-Deployed Application: 
+Deployed Application: https://miadehaan.github.io/Employee_Directory_react/ 
 
 Github Repository: https://github.com/miadehaan/Employee_Directory_react
 
