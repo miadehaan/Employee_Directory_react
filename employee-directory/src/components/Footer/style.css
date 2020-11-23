@@ -1,0 +1,12 @@
+.footer {
+    margin-top: 200px;
+    min-height: 160px;
+    position: relative;
+    background-color: #222725;
+    color: white;
+    text-align: center;
+}
+
+.footerText {
+    padding-top: 70px;
+}

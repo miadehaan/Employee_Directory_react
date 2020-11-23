@@ -26,7 +26,11 @@ Github Repository: https://github.com/miadehaan/Employee_Directory_react
 
     
 ## Usage
-This app is a ...
+This app is a displays a directory of all eomployees at a given company. The user is able to:
+
+  * Sort the table by at least one category
+
+  * Filter the users by at least one property.
 
 
 ## Technologies
