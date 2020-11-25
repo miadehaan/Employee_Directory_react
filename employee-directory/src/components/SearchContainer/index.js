@@ -1,56 +1,65 @@
 import React, { Component }  from "react";
 import "./style.css";
 // import API from "../../utils/API";
-import employees from "../../utils/employees.json";
-import EmployeeCard from "../EmployeeCard";
+import employees from "../../utils/employees";
 
 class SearchContainer extends Component {
     state = {
-        results: {},
+        results: [],
         search: ""
     };
 
     // When the component mounts, get a list of all available employees and update this.state.employees
-    componentDidMount = () => {
-        this.searchEmployees("Soham");
+    componentDidMount() {
+        this.getEmployees("Tommy");
     }
 
     // API call to get all employees
-    searchEmployees = query => {
-        // API.getUsers(query)
-        // .then(res => this.setState({ results: res.results }))
-        // .catch(err => console.log(err));
-        // console.log(employees.results[0]);
+    getEmployees = event => {
 
-        // All employees
-        employees.map(result => (
-            this.setState({ 
-                results: employees 
-            })
-        ));
+        this.setState({ 
+            results: employees
+        })
+        console.log(this.state.results);
+
     }
+
+    searchEmployees = query => {
+        console.log("Query: " + query);
+
+        // search for employee based on user input
+        // employees.map(res => {
+        //     console.log(res);
+
+        //     this.setState({ 
+        //         results: [res.name.first]
+        //     })
+        // });
+    }
+
 
     handleInputChange = event => {
         // Getting the searched input which triggered the change
-        let value = event.target.value;
         const name = event.target.name;
 
         // Updating the input's state
         this.setState({
-            [name]: value
+            [name]: event.target.value
         });
     };
 
     handleFormSubmit = event => {
         event.preventDefault();
-        alert(`You searched for: ${this.state.search} `);
+        // alert(`You searched for: ${this.state.search} `);
+
+        // Search API/json with user input
+        let userInput = this.state.search;
+        this.searchEmployees(userInput);
+
+        // Reset the form field
         this.setState({
             search: ""
         });
-
-        // Search API with user input
-        this.searchEmployees(this.state.search);
-
     };
 
     render() {
@@ -67,7 +76,18 @@ class SearchContainer extends Component {
                     <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
 
-                <EmployeeCard results={this.state.results} />
+                <div>
+                    <h3 className="contentHeader">Searched: {this.state.search} </h3>
+
+                    <ul>
+                        {this.state.results.map(res => (
+                            <li className="list-group-item" key={res.name.first} >
+                                {res.name.first}
+                            </li>
+                        ))}
+                        
+                    </ul>
+                </div>
             </div>
         );
     }
