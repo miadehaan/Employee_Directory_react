@@ -1,6 +1,7 @@
 import React, { Component }  from "react";
 import "./style.css";
 // import API from "../../utils/API";
+import Table from 'react-bootstrap/Table'
 import employees from "../../utils/employees";
 
 class SearchContainer extends Component {
@@ -79,14 +80,33 @@ class SearchContainer extends Component {
                 <div>
                     <h3 className="contentHeader">Searched: {this.state.search} </h3>
 
-                    <ul>
+                    {/* <ul>
                         {this.state.results.map(res => (
                             <li className="list-group-item" key={res.name.first} >
                                 {res.name.first}
                             </li>
                         ))}
                         
-                    </ul>
+                    </ul> */}
+
+                    <Table striped bordered hover className="employeeTable">
+                        <thead>
+                            <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.results.map(res => (
+                                <tr>
+                                    <td key={res.name.first}>1</td>
+                                    <td key={res.name.first}>{res.name.first}</td>
+                                    <td key={res.name.first}>{res.name.last}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                        </Table>
                 </div>
             </div>
         );
