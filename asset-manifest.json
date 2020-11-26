@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/miadehaan/Employee_Directory_react/static/css/main.898bf24f.chunk.css",
+    "main.js": "/miadehaan/Employee_Directory_react/static/js/main.a8367cfa.chunk.js",
+    "main.js.map": "/miadehaan/Employee_Directory_react/static/js/main.a8367cfa.chunk.js.map",
+    "runtime-main.js": "/miadehaan/Employee_Directory_react/static/js/runtime-main.8cbc1445.js",
+    "runtime-main.js.map": "/miadehaan/Employee_Directory_react/static/js/runtime-main.8cbc1445.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/miadehaan/Employee_Directory_react/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.cdd46f6e.chunk.js": "/miadehaan/Employee_Directory_react/static/js/2.cdd46f6e.chunk.js",
+    "static/js/2.cdd46f6e.chunk.js.map": "/miadehaan/Employee_Directory_react/static/js/2.cdd46f6e.chunk.js.map",
+    "index.html": "/miadehaan/Employee_Directory_react/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/miadehaan/Employee_Directory_react/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.898bf24f.chunk.css.map": "/miadehaan/Employee_Directory_react/static/css/main.898bf24f.chunk.css.map",
+    "static/js/2.cdd46f6e.chunk.js.LICENSE.txt": "/miadehaan/Employee_Directory_react/static/js/2.cdd46f6e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8cbc1445.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.cdd46f6e.chunk.js",
+    "static/css/main.898bf24f.chunk.css",
+    "static/js/main.a8367cfa.chunk.js"
+  ]
+}
