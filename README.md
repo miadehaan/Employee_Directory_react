@@ -34,11 +34,13 @@ This app is a displays a directory of all eomployees at a given company. The use
 
 
 ## Technologies
+- JavaScript
 - React JS
+- Bootstrap
 
 ## Example
 
-![Webpage]()
+![Webpage](assets/screenshot.PNG)
 
     
 ## License
