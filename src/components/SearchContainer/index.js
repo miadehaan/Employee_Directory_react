@@ -27,17 +27,45 @@ class SearchContainer extends Component {
 
     searchEmployees = query => {
         console.log("Query: " + query);
+        console.log(employees);
 
         // search for employee based on user input
-        // employees.map(res => {
-        //     console.log(res);
+        let match;
+        for(var i=0; i<employees.length; i++) {
+            if( query === employees[i].name.first ){
+                match = i;
+                // Set state w/ employee match
+                // console.log(employees[match]);
+                this.setState({ 
+                    results: [employees[match]]
+                })  
+            }
 
-        //     this.setState({ 
-        //         results: [res.name.first]
-        //     })
-        // });
+        }
+
     }
 
+    firstNameFilter = event => {
+
+         // // JS sort()
+        // console.log(query[0].name.first);
+        // console.log(query[7].name.first);
+
+        // console.log("===============");
+
+        // function sortByName(currentSpot, nextSpot) {
+        //     if (currentSpot.name.first > nextSpot.name.first) {
+        //         return 1;
+        //     }
+        //     return -1;
+        // }
+
+        // query.sort(sortByName);
+
+        // console.log(query[0].name.first);
+        // console.log(query[7].name.first);
+        
+    }
 
     handleInputChange = event => {
         // Getting the searched input which triggered the change
@@ -98,13 +126,16 @@ class SearchContainer extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.results.map(res => (
-                                <tr>
-                                    <td key={res.name.first}>1</td>
-                                    <td key={res.name.first}>{res.name.first}</td>
-                                    <td key={res.name.first}>{res.name.last}</td>
-                                </tr>
-                            ))}
+                            {this.state.results.map((res, index) => {
+                                let employeePostion = index + 1;
+                                return(
+                                    <tr key={employeePostion}>
+                                        <td> {employeePostion} </td>
+                                        <td>{res.name.first}</td>
+                                        <td>{res.name.last}</td>
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                         </Table>
                 </div>
