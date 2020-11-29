@@ -67,12 +67,6 @@ class SearchContainer extends Component {
     }
 
     firstNameFilterZA = event => {
-
-        // // JS sort()
-        // console.log(employees[0].name.first);
-        // console.log(employees[7].name.first);
-        // console.log("===============");
-
         function sortByName(currentSpot, nextSpot) {
             if (currentSpot.name.first < nextSpot.name.first) {
                 return 1;
@@ -84,6 +78,32 @@ class SearchContainer extends Component {
             results: employees.sort(sortByName)
         }) 
         
+    }
+
+    lastNameFilterAZ = event => {
+        function sortByName(currentSpot, nextSpot) {
+            if (currentSpot.name.last > nextSpot.name.last) {
+                return 1;
+            }
+            return -1;
+        }
+
+        this.setState({ 
+            results: employees.sort(sortByName)
+        }) 
+    }
+
+    lastNameFilterZA = event => {
+        function sortByName(currentSpot, nextSpot) {
+            if (currentSpot.name.last < nextSpot.name.last) {
+                return 1;
+            }
+            return -1;
+        }
+
+        this.setState({ 
+            results: employees.sort(sortByName)
+        }) 
     }
 
     handleInputChange = event => {
@@ -153,7 +173,10 @@ class SearchContainer extends Component {
                                     <button className="btn btn-light firstNameFilter" onClick={this.firstNameFilterAZ}> <i className="fa fa-sort-up"></i> </button> 
                                     <button className="btn btn-light firstNameFilter" onClick={this.firstNameFilterZA}> <i className="fa fa-sort-down"></i> </button>
                                 </th>
-                                <th>Last Name</th>
+                                <th>Last Name
+                                    <button className="btn btn-light firstNameFilter" onClick={this.lastNameFilterAZ}> <i className="fa fa-sort-up"></i> </button> 
+                                    <button className="btn btn-light firstNameFilter" onClick={this.lastNameFilterZA}> <i className="fa fa-sort-down"></i> </button>
+                                </th>
                                 <th>Email</th>
                                 </tr>
                             </thead>
