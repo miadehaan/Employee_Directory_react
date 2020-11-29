@@ -46,25 +46,43 @@ class SearchContainer extends Component {
 
     }
 
-    firstNameFilter = event => {
+    firstNameFilterAZ = event => {
 
-         // // JS sort()
-        // console.log(query[0].name.first);
-        // console.log(query[7].name.first);
-
+        // // JS sort()
+        // console.log(employees[0].name.first);
+        // console.log(employees[7].name.first);
         // console.log("===============");
 
-        // function sortByName(currentSpot, nextSpot) {
-        //     if (currentSpot.name.first > nextSpot.name.first) {
-        //         return 1;
-        //     }
-        //     return -1;
-        // }
+        function sortByName(currentSpot, nextSpot) {
+            if (currentSpot.name.first > nextSpot.name.first) {
+                return 1;
+            }
+            return -1;
+        }
 
-        // query.sort(sortByName);
+        this.setState({ 
+            results: employees.sort(sortByName)
+        }) 
+        
+    }
 
-        // console.log(query[0].name.first);
-        // console.log(query[7].name.first);
+    firstNameFilterZA = event => {
+
+        // // JS sort()
+        // console.log(employees[0].name.first);
+        // console.log(employees[7].name.first);
+        // console.log("===============");
+
+        function sortByName(currentSpot, nextSpot) {
+            if (currentSpot.name.first < nextSpot.name.first) {
+                return 1;
+            }
+            return -1;
+        }
+
+        this.setState({ 
+            results: employees.sort(sortByName)
+        }) 
         
     }
 
@@ -105,7 +123,7 @@ class SearchContainer extends Component {
                                 type="text"
                                 placeholder="Search Employees"
                             />
-                            <div class="input-group-append">
+                            <div className="input-group-append">
                                 <button type="button" className="btn btn-dark searchBtn input-group-text"onClick={this.handleFormSubmit}>Submit</button>
                             </div>
                         </form>
@@ -130,8 +148,13 @@ class SearchContainer extends Component {
                             <thead>
                                 <tr>
                                 <th>#</th>
-                                <th>First Name</th>
+                                <th>Portrait</th>
+                                <th>First Name 
+                                    <button className="btn btn-light firstNameFilter" onClick={this.firstNameFilterAZ}> <i className="fa fa-sort-up"></i> </button> 
+                                    <button className="btn btn-light firstNameFilter" onClick={this.firstNameFilterZA}> <i className="fa fa-sort-down"></i> </button>
+                                </th>
                                 <th>Last Name</th>
+                                <th>Email</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -140,8 +163,10 @@ class SearchContainer extends Component {
                                     return(
                                         <tr key={employeePostion}>
                                             <td> {employeePostion} </td>
+                                            <td> <img src={res.picture.large} alt="portait of employee" /> </td>
                                             <td>{res.name.first}</td>
                                             <td>{res.name.last}</td>
+                                            <td>{res.email}</td>
                                         </tr>
                                     )
                                 })}
