@@ -7,7 +7,7 @@ function Header() {
         <header className="header jumbotron jumbotron-fluid">
             <div className="container">
                 <h1 className="display-4">Employee Directory</h1>
-                <p className="lead">Welcome to... !</p>
+                {/* <p className="lead">Welcome to... !</p> */}
             </div>
         </header>
     );

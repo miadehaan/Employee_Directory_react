@@ -26,13 +26,14 @@ class SearchContainer extends Component {
     }
 
     searchEmployees = query => {
-        console.log("Query: " + query);
-        console.log(employees);
+        // console.log("Query: " + query);
+        const searched = query.toLowerCase();
+        console.log(searched);
 
         // search for employee based on user input
         let match;
         for(var i=0; i<employees.length; i++) {
-            if( query === employees[i].name.first ){
+            if( searched === employees[i].name.first.toLowerCase() ){
                 match = i;
                 // Set state w/ employee match
                 // console.log(employees[match]);
@@ -94,51 +95,61 @@ class SearchContainer extends Component {
     render() {
         return (
             <div>
-                <form className="form">
-                    <input
-                    value={this.state.search}
-                    name="search"
-                    onChange={this.handleInputChange}
-                    type="text"
-                    placeholder="Search Employees"
-                    />
-                    <button onClick={this.handleFormSubmit}>Submit</button>
-                </form>
+                <div className="container">
+                    <div className="row">
+                        <form className="col-4 input-group mb-4">
+                            <input className="form-control"
+                                value={this.state.search}
+                                name="search"
+                                onChange={this.handleInputChange}
+                                type="text"
+                                placeholder="Search Employees"
+                            />
+                            <div class="input-group-append">
+                                <button type="button" className="btn btn-dark searchBtn input-group-text"onClick={this.handleFormSubmit}>Submit</button>
+                            </div>
+                        </form>
 
-                <div>
-                    <h3 className="contentHeader">Searched: {this.state.search} </h3>
-
-                    {/* <ul>
-                        {this.state.results.map(res => (
-                            <li className="list-group-item" key={res.name.first} >
-                                {res.name.first}
-                            </li>
-                        ))}
-                        
-                    </ul> */}
-
-                    <Table striped bordered hover className="employeeTable">
-                        <thead>
-                            <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.results.map((res, index) => {
-                                let employeePostion = index + 1;
-                                return(
-                                    <tr key={employeePostion}>
-                                        <td> {employeePostion} </td>
-                                        <td>{res.name.first}</td>
-                                        <td>{res.name.last}</td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                        </Table>
+                    </div>
                 </div>
+
+                <div className="container">
+                    <div className="row">
+                        <h3 className="col-6 contentHeader">Results: {this.state.search} </h3>
+                        <div className="col-4" > </div>
+                        <span className="col-2"> 
+                            <button type="button" className="showAllBtn btn btn-dark" onClick={this.getEmployees}> Show All Employees </button>
+                        </span>
+                        
+                    </div>
+                </div>
+
+                <div className="container">
+                    <div className="row">
+                        <Table striped bordered hover className="employeeTable">
+                            <thead>
+                                <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.results.map((res, index) => {
+                                    let employeePostion = index + 1;
+                                    return(
+                                        <tr key={employeePostion}>
+                                            <td> {employeePostion} </td>
+                                            <td>{res.name.first}</td>
+                                            <td>{res.name.last}</td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
+
             </div>
         );
     }
