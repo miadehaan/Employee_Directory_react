@@ -1,7 +1,7 @@
 import React, { Component }  from "react";
 import "./style.css";
 // import API from "../../utils/API";
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
 import employees from "../../utils/employees";
 
 class SearchContainer extends Component {
@@ -41,8 +41,12 @@ class SearchContainer extends Component {
                     results: [employees[match]]
                 })  
             }
-
         }
+
+        // check if no search found
+        // if(this.state.results.length === employees.length ) {    
+        //     alert("No employees found - try again!");
+        // }
 
     }
 
@@ -135,7 +139,7 @@ class SearchContainer extends Component {
             <div>
                 <div className="container">
                     <div className="row">
-                        <form className="col-4 input-group mb-4">
+                        <form className="col-md-4 col-sm-8 col-12 input-group mb-4">
                             <input className="form-control"
                                 value={this.state.search}
                                 name="search"
@@ -144,7 +148,7 @@ class SearchContainer extends Component {
                                 placeholder="Search Employees"
                             />
                             <div className="input-group-append">
-                                <button type="button" className="btn btn-dark searchBtn input-group-text"onClick={this.handleFormSubmit}>Submit</button>
+                                <button type="button" className="btn btn-dark searchBtn input-group-text" onClick={this.handleFormSubmit}>Submit</button>
                             </div>
                         </form>
 
@@ -153,9 +157,9 @@ class SearchContainer extends Component {
 
                 <div className="container">
                     <div className="row">
-                        <h3 className="col-6 contentHeader">Results: {this.state.search} </h3>
-                        <div className="col-4" > </div>
-                        <span className="col-2"> 
+                        <h3 className="col-md-6 col-6 contentHeader">Results: {this.state.search} </h3>
+                        <div className="col-md-4 col-2" > </div>
+                        <span className="col-md-2 col-4"> 
                             <button type="button" className="showAllBtn btn btn-dark" onClick={this.getEmployees}> Show All Employees </button>
                         </span>
                         
@@ -164,14 +168,16 @@ class SearchContainer extends Component {
 
                 <div className="container">
                     <div className="row">
-                        <Table striped bordered hover className="employeeTable">
+                        <Table striped bordered hover className="employeeTable col-12">
                             <thead>
                                 <tr>
                                 <th>#</th>
                                 <th>Portrait</th>
                                 <th>First Name 
-                                    <button className="btn btn-light firstNameFilter" onClick={this.firstNameFilterAZ}> <i className="fa fa-sort-up"></i> </button> 
-                                    <button className="btn btn-light firstNameFilter" onClick={this.firstNameFilterZA}> <i className="fa fa-sort-down"></i> </button>
+                                    <span>
+                                        <button className="btn btn-light firstNameFilter" onClick={this.firstNameFilterAZ}> <i className="fa fa-sort-up"></i> </button> 
+                                        <button className="btn btn-light firstNameFilter" onClick={this.firstNameFilterZA}> <i className="fa fa-sort-down"></i> </button>
+                                    </span>
                                 </th>
                                 <th>Last Name
                                     <button className="btn btn-light firstNameFilter" onClick={this.lastNameFilterAZ}> <i className="fa fa-sort-up"></i> </button> 
