@@ -7,7 +7,8 @@ import employees from "../../utils/employees";
 class SearchContainer extends Component {
     state = {
         results: [],
-        search: ""
+        search: "",
+        noSearch: ""
     };
 
     // When the component mounts, get a list of all available employees and update this.state.employees
@@ -41,7 +42,19 @@ class SearchContainer extends Component {
                     results: [employees[match]]
                 })  
             }
+            else {
+                this.setState({
+                    noSearch: "No matches found"
+                })
+            }
         }
+
+        setTimeout(() => {
+            this.setState({
+                noSearch: ""
+            })
+        }, 5000);
+
 
         // check if no search found
         // if(this.state.results.length === employees.length ) {    
@@ -158,7 +171,7 @@ class SearchContainer extends Component {
                 <div className="container">
                     <div className="row">
                         <h3 className="col-md-6 col-6 contentHeader">Results: {this.state.search} </h3>
-                        <div className="col-md-4 col-2" > </div>
+                        <div className="col-md-4 col-2" > {this.state.noSearch} </div>
                         <span className="col-md-2 col-4"> 
                             <button type="button" className="showAllBtn btn btn-dark" onClick={this.getEmployees}> Show All Employees </button>
                         </span>
