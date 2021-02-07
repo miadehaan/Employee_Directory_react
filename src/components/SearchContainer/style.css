@@ -4,7 +4,10 @@ h3.contentHeader {
 
 button.showAllBtn {
     height: 60px;
+    width: 100%;
     text-align: center;
+    color: white;
+    background-color: #0c72b6;
 }
 
 .employeeTable {

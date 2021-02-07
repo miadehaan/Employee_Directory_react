@@ -57,9 +57,10 @@ class SearchContainer extends Component {
 
 
         // check if no search found
-        // if(this.state.results.length === employees.length ) {    
-        //     alert("No employees found - try again!");
-        // }
+        console.log(match);
+        if (match === undefined) {
+            alert("No employees found - try again!");
+        }
 
     }
 
@@ -152,7 +153,7 @@ class SearchContainer extends Component {
             <div>
                 <div className="container">
                     <div className="row">
-                        <form className="col-md-4 col-sm-8 col-12 input-group mb-4">
+                        <form className="col-sm-8 col-12 input-group mb-4">
                             <input className="form-control"
                                 value={this.state.search}
                                 name="search"
@@ -165,23 +166,17 @@ class SearchContainer extends Component {
                             </div>
                         </form>
 
-                    </div>
-                </div>
-
-                <div className="container">
-                    <div className="row">
-                        <h3 className="col-md-6 col-6 contentHeader">Results: {this.state.search} <span>{this.state.noSearch}</span> </h3>
-                        <div className="col-md-4 col-2" >  </div>
-                        <span className="col-md-2 col-4"> 
-                            <button type="button" className="showAllBtn btn btn-dark" onClick={this.getEmployees}> Show All Employees </button>
+                        <span className="col-sm-4 col-12"> 
+                            <button type="button" className="showAllBtn btn" onClick={this.getEmployees}> Show All Employees </button>
                         </span>
-                        
+
                     </div>
                 </div>
 
+
                 <div className="container">
                     <div className="row">
-                        <Table striped bordered hover className="employeeTable col-12">
+                        <Table responsive striped bordered hover className="employeeTable col-12">
                             <thead>
                                 <tr>
                                 <th>#</th>
@@ -205,7 +200,7 @@ class SearchContainer extends Component {
                                     return(
                                         <tr key={employeePostion}>
                                             <td> {employeePostion} </td>
-                                            <td> <img src={res.picture.large} alt="portait of employee" /> </td>
+                                            <td> <img src={res.picture.large} alt="portait of employee" style={{borderRadius: '50%'}} /> </td>
                                             <td>{res.name.first}</td>
                                             <td>{res.name.last}</td>
                                             <td>{res.email}</td>
